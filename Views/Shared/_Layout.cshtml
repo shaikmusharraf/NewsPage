@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        div, p, h2, h4, h3 {
+            font-family: "Faustina",serif;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .fa-facebook {
+            color: white;
+        }
+
+        .fa-twitter {
+            color: white;
+        }
+
+        .fa-instagram {
+            color: white;
+        }
+
+        .fa-linkedin {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @* <p class="text-light date-at-navbar">@DateTime.Now.ToLongDateString()</p>*@
+            @Html.ActionLink("The Daily Buzz ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse" title="Toggle navigation"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <br />
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("India", "India", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("World", "World", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Business", "Business", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Sports", "Sports", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Politics", "Politics", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Health", "Health", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Science", "Science", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end">
+                <a href="www.m.facebook.com" class="fa fa-facebook" target="_blank"></a>
+                <a href="www.twitter.com" class="fa fa-twitter" target="_blank"></a>
+                <a href="https://www.instagram.com/accounts/login/" class="fa fa-instagram" target="_blank"></a>
+                <a href="https://in.linkedin.com/" class="fa fa-linkedin" target="_blank"></a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" style="padding-top:15px;">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p class="text-light"style="padding-right:5px;">Dear @User.Identity.Name</p>
+                    <p>@Html.ActionLink("LogOut", "Logout", "Account", new { area = "" }, new { @class = "btn btn-light justify-content-end" }) </p>
+                }
+                else
+                {
+                    <p>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, new { @class = "btn btn-light justify-content-end " })</p><br />
+                    <p style="padding-left:5px;">@Html.ActionLink("Download e-Paper", "Login", "Account", new { area = "" }, new { @class = "btn  btn-light justify-content-end" })</p>
+
+                }
+            </div>
+
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm ">
+                <section class="col-md-6">
+
+                    <div class="container">
+                        &copy; @DateTime.Now.Year -
+                        @Html.ActionLink("The Daily Buzz ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                </section>
+                <section class="col-md-6">
+
+                    <div class="collapse container navbar-collapse d-sm-inline-flex justify-content-end">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li>@Html.ActionLink("Contact Us", "ContactUS", "Footer", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Footer", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Terms of Services", "TermsofServices", "Footer", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Careers", "ContactUs", "Footer", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Help", "ContactUs", "Footer", new { area = "" }, new { @class = "nav-link" })</li>
+                        </ul>
+                        <br />
+                        <br />
+                    </div>
+                </section>
+
+            </nav>
+
+        </footer>
+        <hr />
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+

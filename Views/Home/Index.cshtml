@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    #readMore:active, #readMore:link, #readMore:visited, #readMore{
+        font-size:20px;
+        padding-left:10px;
+        color:red;
+
+    }
+    #trendingNow a:link, #trendingNow a:active, #trendingNow a:visited {
+        text-decoration: none;
+        color: black
+    }
+
+    #trendingNow a:hover {
+        color: darkblue;
+    }
+    div h2 p h3 h4 .lead {
+        font-family: "Faustina",serif;
+    }
+
+    #i1:active,#i1:link{
+        text-decoration:none;
+    }
+    .lead{
+        font-family:sans-serif;
+    }
+    #himachalText,#headingText{
+        font-family:"Times New Roman";
+    }
+
+    #himachalText,#headingText {
+        padding-left: 10px;
+        text-decoration:none;
+    }
+    #headingText{
+        padding-top:5px;
+        color:black;
+        text-decoration:none;
+        font-size:20px;
+    }
+
+    #headingText :link ,#headingText :visited, #headingText:active {
+        color: black;
+        text-decoration: none;
+    }
+    #himachalImg,.slider img{
+        width:100%;
+        height:auto;
+
+    }
+    h5{
+        font-size:15px;
+    }
+
+    @*.slider h4 {
+        border-block: 5px;
+        padding-left: 20px;
+        justify-content:left;
+    }*@
+</style>
+
+<main>
+    <div class="row">
+
+        <section class="col justify-content-between" aria-labelledby="Title">
+            <p>@DateTime.Now.ToLongDateString()</p>  <h1 style="padding-top:0px;" id="title">The Daily Buzz news</h1>
+            <p class=" text-muted">Our Team provides the best and latest NEWS in your service.</p>
+            <hr />
+        </section>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <div class="col">
+                <p>@Html.ActionLink("Download e-paper", "epaper", "Home", new { @class = "btn btn-dark justify-content-center" })</p><br />
+
+            </div>
+
+        }
+    </div>
+
+    <div class="row">
+        <section class="col-md-6" aria-labelledby="indiaToday">
+            <h2 id="heads">India Today</h2>
+            <p class="slider container">
+                <a href="https://www.indiatoday.in/india/story/himachal-pradesh-heavy-rain-red-alert-schools-shut-rivers-bridges-cars-washed-away-2404211-2023-07-10" target="_blank">
+                    <img id="himachalImg" src="~/Images/Floods-and-landslides-in-himachal-pradesh.jpg" alt="Himachal braces more rain" />
+                    <h4 id="headingText">Himachal braces more rain ....</h4>
+                </a>
+                <h5 id="himachalText" class="text-dark">
+                    At least 19 people have been killed as heavy rain continues to batter north India.
+                    The weather office has predicted more rain for Himachal Pradesh, Uttarakhand, Punjab, Haryana,
+                    Jammu and Kashmir, Rajasthan, Delhi and its adjoining areas.
+                    The weather office has predicted more rain for Himachal Pradesh, Uttarakhand, Punjab, Haryana, Jammu and Kashmir, Rajasthan, Delhi and its adjoining areas.
+                    <br> Frightening images of the chaos unleashed by the rain -- cars floating
+                    like paper boats on flooded roads, muddy waters gushing into residential areas,
+                    temples and other structures submerged on the banks by the swollen rivers -- were shared
+                    online by people from Himachal Pradesh, Uttarakhand and Delhi.
+                </h5>
+            </p>
+            <a id="i1" href="https://www.indiatoday.in/india/story/himachal-pradesh-heavy-rain-red-alert-schools-shut-rivers-bridges-cars-washed-away-2404211-2023-07-10" target="_blank">
+                <h4 id="readMore">Read more ...</h4>
+            </a>
+            <hr />
+            <h2>Trending Now</h2>
+            <p id="trendingNow">
+                <a href="#">Google Analytics 4: the Ultimate Guide to Understanding and Improving Your Website’s Performance</a><br /><hr />
+            </p>
+            <p id="trendingNow">
+                <a href="#">
+                    How Do I Turn My Grass Into a Flower Bed?<br /><hr />
+                </a>
+            </p>
+            <p id="trendingNow">
+                <a href="#">
+                    How Far From the House Should a Flower Bed Be?<br /><hr />
+                </a>
+            </p>
+            <p id="trendingNow">
+                <a href="#">
+                    How Do You Prepare the Ground for a Flower Bed?<br /><hr />
+                </a>
+            </p>
+            <p id="trendingNow">
+                <a href="#">
+                    Understanding Solar Energy and Solar Panels<br /><hr />
+                </a>
+            </p>
+        </section>
+        <section class="col-md-6" aria-labelledby="librariesTitle">
+            <h2 id="heads">Top Stories</h2>
+            <div class="slider row">
+
+                <a style="text-decoration:none" href="https://www.indiatoday.in/india/story/rain-in-kashmir-ladakh-people-soldiers-killed-snowfall-delhi-weather-update-himachal-landslide-2404124-2023-07-09" target="_blank">
+                    <img id="2soildersDeath" src="~/Images/avalanche-sixteen_nine-_.jpg" />
+                    <h4 id="headingText">2 soldiers among 5 killed as J&K, Ladakh receive heavy rains, unseasonal snowfall</h4>
+                </a>
+                <hr />
+                <a style="text-decoration:none" href="https://www.indiatoday.in/cities/delhi/story/delhi-ncr-weather-forecast-today-heavy-rain-alert-gurugram-noida-traffic-jam-schools-closed-2404213-2023-07-10" target="_blank">
+                    <img id="delhiClimate" src="~/Images/delhi-rains-1688089222.jpg" />
+                    <h4 id="headingText">
+                        2 dead as record rain cripples Delhi, flood alert as more showers in store
+                    </h4>
+                </a>
+                <hr />
+                <a style="text-decoration:none" href="https://www.indiatoday.in/india/story/bengal-panchayat-polls-fresh-violence-repolling-underway-696-booths-trinamool-congress-bjp-2404232-2023-07-10" target="_blank">
+                    <img id="bengalPolls" src="~/Images/38170-west-bengal-panchayat-election-pti.jpg" />
+                    <h4 id="headingText">
+                        Bengal panchayat polls: Fresh violence erupts as repolling underway in 696 booths
+                    </h4>
+                </a>
+                <hr />
+            </div>
+            @*<p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+        </section>
+    </div>
+</main>
